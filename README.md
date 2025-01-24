@@ -59,7 +59,9 @@ Added the Job to queue using Bullmq and screated a worker which processes this j
 
 
 ![My Image](public/1.png)
-2) 
+2) ![My Image](public/2.png)
+
+
 ```
 http://localhost:3000/jobapi/status?jobid=1
 ```
