@@ -51,9 +51,11 @@ Why I used BUllMQ- For Processing the job in order to put more burden on main se
 ```
 http://localhost:3000/api/submit
 ```
+
 This api is used for creating a job which includes details like count , visits and store details along with image url.
 
 Added the Job to queue using Bullmq and screated a worker which processes this job one by one and updates the detail in database.
+![New users](./PUBLIC/image.jpg)
 
 ![New users](PUBLIC/1.png)
 
