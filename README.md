@@ -19,7 +19,16 @@ Make sure you have the following installed on your system:
    ```
    npm install
 3) Create a .env file in the backend directory with the following environment variables:
+4) ```
     DATABASE_URL=your_postgresql_database_url
+5) Set up prisma
+```bash
+npx prisma generate
+npx prisma migrate dev
+```
+6) 
+
+
    
    
    
