@@ -42,7 +42,7 @@ npx prisma migrate dev
 7) ```
    cd dist
    node index.js
-## Tech stack : Node.js , Express.js , Typescript,Redis , Docker , Bullmq, PostgreSQL,PrismaORM
+
 
 Why I used BUllMQ- For Processing the job in order to put more burden on main server and maintaining the rule of first come first server (FIFO) Queue.
 
