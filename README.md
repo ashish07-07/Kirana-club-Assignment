@@ -55,7 +55,7 @@ This api is used for creating a job which includes details like count , visits a
 
 Added the Job to queue using Bullmq and screated a worker which processes this job one by one and updates the detail in database.
 
-![New users](./PUBLIC/1.png)
+![New users](PUBLIC/1.png)
 
 2) 
 ```
