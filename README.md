@@ -45,9 +45,10 @@ npx prisma migrate dev
 ```
 7) ```
    npm run build
-```
 
-8) ```
+
+8) Run command
+```
    cd dist
    node index.js
 ```
