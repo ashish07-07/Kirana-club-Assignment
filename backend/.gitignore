@@ -4,3 +4,5 @@ node_modules
 # Ignore specific migration file
 backend/prisma/migrations
 backend/prisma/migrations/20250122142620_initialschema/migration.sql
+backend/prisma
+D:\Kirana-club-Assignment\backend\prisma\migrations\20250122142620_initialschema\migration.sql
