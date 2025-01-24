@@ -56,13 +56,23 @@ This api is used for creating a job which includes details like count , visits a
 
 Added the Job to queue using Bullmq and screated a worker which processes this job one by one and updates the detail in database.
 
-![New users](./public/1.png)
 
-2) 
+
+![My Image](public/1.png)
+ ![My Image](public/2.png)
+2)
+
+
 ```
 http://localhost:3000/jobapi/status?jobid=1
 ```
 This api is used to know the detials of the job wheather is it failed , passed or the processing is still ongoing
+
+ ![My Image](public/3.png)
+ This is for Failed status where i removed some image url links 
+  ![My Image](public/4.png)
+  When job id was not found
+   ![My Image](public/5.png)
 
 
 
