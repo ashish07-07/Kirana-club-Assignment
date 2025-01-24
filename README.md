@@ -34,6 +34,7 @@ Make sure you have the following installed on your system:
 ```bash
 
 docker run --name redis -p 6379:6379 -d redis:6.2
+```
 
 5) ```
     DATABASE_URL=your_postgresql_database_url  You can also get the database link from neondb
@@ -44,12 +45,12 @@ npx prisma migrate dev
 ```
 7) ```
    npm run build
-
+```
 
 8) ```
    cd dist
    node index.js
-
+```
 
 Why I used BUllMQ- For Processing the job in order to put more burden on main server and maintaining the rule of first come first server (FIFO) Queue.
 
