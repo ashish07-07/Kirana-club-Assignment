@@ -69,7 +69,7 @@ http://localhost:3000/jobapi/status?jobid=1
 This api is used to know the detials of the job wheather is it failed , passed or the processing is still ongoing
 
  ![My Image](public/3.png)
- THis is for Failed status where i removed some iamge url links 
+ This is for Failed status where i removed some image url links 
   ![My Image](public/4.png)
   When job id was not found
    ![My Image](public/5.png)
