@@ -30,8 +30,8 @@ Make sure you have the following installed on your system:
    npm install
 3) Create a .env file in the backend directory with the following environment variables:
 
-Run the Redis locally
-4) ```bash
+4) Run the Redis locally
+```bash
 
 docker run --name redis -p 6379:6379 -d redis:6.2
 
