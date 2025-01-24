@@ -1,85 +1,32 @@
 
-# # Use the official Node.js image
-# FROM node:18
-
-# # Set the working directory inside the container
-# WORKDIR /backend
-
-# # Copy package.json and package-lock.json
-# COPY package*.json ./
-
-# # Install dependencies
-# RUN npm install
-
-# # Copy the entire project, including src and dist
-# COPY . .
-
-# # Set the default directory to dist (where index.js and worker.js are located)
-# WORKDIR /backend/dist
-
-# # Expose the port your app runs on
-# EXPOSE 3000
-
-# Use an official Node.js image
-# FROM node:18
-
-# # Set the working directory inside the container
-# WORKDIR /backend
-
-# # Copy package.json and package-lock.json
-# COPY package*.json ./
-
-# # Install dependencies, including axios and sharp
-# RUN npm install --legacy-peer-deps
-
-# # Install system-level dependencies for sharp
-# RUN apt-get update && apt-get install -y \
-#     libvips-dev \
-#     && rm -rf /var/lib/apt/lists/*
-
-# # Copy the rest of the application code
-# COPY . .
-
-# # Build the application (if using TypeScript or need transpiled files)
-# RUN npm run build
-
-# # Expose the application port
-# EXPOSE 3000
-
-# # Default command for the app service
-# CMD ["node", "dist/index.js"]
-
-# Use a stable Node.js 18 image
 FROM node:18
 
-# Set the working directory inside the container
+
 WORKDIR /backend
 
-# Copy package.json and package-lock.json
+
 COPY package*.json ./
 
-# Install dependencies, including optional dependencies for "sharp"
+
 RUN npm install --legacy-peer-deps --include=optional
 
-# Install system-level dependencies required by "sharp"
+
 RUN apt-get update && apt-get install -y \
     libvips-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the rest of the application code
+
 COPY . .
 
-# Set Prisma binary targets in the environment
+
 ENV PRISMA_QUERY_ENGINE_LIBRARY=/backend/node_modules/@prisma/client/libquery_engine-debian-openssl-3.0.x.so.node
 
-# Add binary targets for Prisma in the schema
 RUN npx prisma generate
 
-# Build the application (if using TypeScript or other build tools)
+
 RUN npm run build
 
-# Expose the application port
+
 EXPOSE 3000
 
-# Default command for the app service
 CMD ["node", "dist/index.js"]
