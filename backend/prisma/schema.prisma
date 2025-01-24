@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum jobstatus{
+ongoing
+completed
+failed
+}
+
+model Visit{
+  id Int @id @default(autoincrement())
+  store_id String
+  image_url String[]
+  visit_time String
+  jobId Int 
+  job Job @relation(fields: [jobId], references: [id])
+}
+
+model Job{
+id Int @id @default(autoincrement())
+count Int
+status  jobstatus
+createdat DateTime @default(now())
+updatedat DateTime @updatedAt
+visits Visit[]
+imageResults ImageResult[]
+}
+
+model ImageResult {
+  id         Int      @id @default(autoincrement())
+  jobId      Int
+  storeId    String
+  imageUrl   String
+  perimeter  Float?
+  status     String 
+  createdAt  DateTime @default(now())
+  job Job @relation(fields: [jobId], references: [id])
+  error  String ?
+
+}

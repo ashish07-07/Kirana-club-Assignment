@@ -1,0 +1,101 @@
+
+
+# version: '3.8'
+
+# services:
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     volumes:
+#       - .:/backend
+#     ports:
+#       - "3000:3000"
+#     command: ["node", "index.js"] # Runs index.js from dist folder
+
+#   worker:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     volumes:
+#       - .:/backend
+#     command: ["node", "worker.js"] # Runs worker.js from dist folder
+
+#   redis:
+#     image: redis
+#     ports:
+#       - "6379:6379"
+
+
+# version: '3.8'
+
+# services:
+#   app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     volumes:
+#       - .:/backend
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       DATABASE_URL: "postgresql://neondb_owner:npg_UDw0p1SEjoCA@ep-soft-tree-a8p1l0i1-pooler.eastus2.azure.neon.tech/Kirana-club-assignment?sslmode=require"
+#     depends_on:
+#       - redis
+#     command: ["node", "dist/index.js"]
+
+#   worker:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     volumes:
+#       - .:/backend
+#     environment:
+#       DATABASE_URL: "postgresql://neondb_owner:npg_UDw0p1SEjoCA@ep-soft-tree-a8p1l0i1-pooler.eastus2.azure.neon.tech/Kirana-club-assignment?sslmode=require"
+#     depends_on:
+#       - redis
+#     command: ["node", "dist/worker.js"]
+
+#   redis:
+#     image: redis
+#     ports:
+#       - "6379:6379"
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/backend
+      - /backend/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: "production"
+      DATABASE_URL: "postgresql://neondb_owner:npg_UDw0p1SEjoCA@ep-soft-tree-a8p1l0i1-pooler.eastus2.azure.neon.tech/Kirana-club-assignment?sslmode=require"
+      REDIS_URL: "redis://redis:6379"
+    depends_on:
+      - redis
+    command: ["node", "dist/index.js"]
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/backend
+      - /backend/node_modules
+    environment:
+      NODE_ENV: "production"
+      DATABASE_URL: "postgresql://neondb_owner:npg_UDw0p1SEjoCA@ep-soft-tree-a8p1l0i1-pooler.eastus2.azure.neon.tech/Kirana-club-assignment?sslmode=require"
+      REDIS_URL: "redis://redis:6379"
+    depends_on:
+      - redis
+    command: ["node", "dist/worker.js"]
+
+  redis:
+    image: redis:6
+    ports:
+      - "6379:6379"

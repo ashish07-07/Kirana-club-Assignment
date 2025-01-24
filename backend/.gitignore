@@ -1,0 +1,6 @@
+node_modules
+# Keep environment variables out of version control
+.env
+# Ignore specific migration file
+backend/prisma/migrations
+backend/prisma/migrations/20250122142620_initialschema/migration.sql
