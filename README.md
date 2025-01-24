@@ -26,7 +26,13 @@ Make sure you have the following installed on your system:
 npx prisma generate
 npx prisma migrate dev
 ```
-6) 
+6) ```
+   npm run build
+
+7) ```
+   cd dist
+   node index.js
+
 
 
    
