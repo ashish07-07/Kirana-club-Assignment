@@ -19,7 +19,7 @@ Make sure you have the following installed on your system:
 - Docker 
 - A PostgreSQL database
 
-- ### Installation
+- ### Installation For Local setup without docker compose
 
 1. Clone the repository:
    ```bash
@@ -29,17 +29,24 @@ Make sure you have the following installed on your system:
    ```
    npm install
 3) Create a .env file in the backend directory with the following environment variables:
-4) ```
+
+Run the Redis locally
+4) ```bash
+
+docker run --name redis -p 6379:6379 -d redis:6.2
+
+5) ```
     DATABASE_URL=your_postgresql_database_url  You can also ket the database link from neondb
-5) Set up prisma
+6) Set up prisma
 ```bash
 npx prisma generate
 npx prisma migrate dev
 ```
-6) ```
+7) ```
    npm run build
 
-7) ```
+
+8) ```
    cd dist
    node index.js
 
