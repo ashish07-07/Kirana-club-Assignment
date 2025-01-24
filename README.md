@@ -1,6 +1,16 @@
 # Kirana Club Assignment
 
-Retail Pulse Service
+
+## Tech Stack
+- Node.js
+- Express.js
+- TypeScript
+- Redis
+- Docker
+- BullMQ
+- PostgreSQL
+- Prisma ORM
+
 
 ## Getting Started
 
