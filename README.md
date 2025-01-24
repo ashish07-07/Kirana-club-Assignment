@@ -36,7 +36,7 @@ Run the Redis locally
 docker run --name redis -p 6379:6379 -d redis:6.2
 
 5) ```
-    DATABASE_URL=your_postgresql_database_url  You can also ket the database link from neondb
+    DATABASE_URL=your_postgresql_database_url  You can also get the database link from neondb
 6) Set up prisma
 ```bash
 npx prisma generate
