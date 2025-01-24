@@ -78,6 +78,9 @@ This api is used to know the detials of the job wheather is it failed , passed o
 
 
 
+3) Data base Snapshots
+![My Image](public/6.png)
+![My Image](public/7.png)
 
 
 
